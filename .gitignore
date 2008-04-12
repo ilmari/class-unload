@@ -1,0 +1,13 @@
+blib*
+META.yml
+MANIFEST
+Makefile
+pm_to_blib*
+*.tar.gz
+.lwpcookies
+Class-Unload-*
+cover_db
+*~
+inc
+*.bak
+*.old
