@@ -47,10 +47,10 @@ the parent namespace.
 sub unload {
     my ($self, $class) = @_;
 
-    # Delete all symbols except other namespaces
-    my $symtab = $class.'::';
-    return unless keys %$symtab;
+    return unless Class::Inspector->loaded( $class );
 
+    my $symtab = $class.'::';
+    # Delete all symbols except other namespaces
     for my $symbol (keys %$symtab) {
         next if substr($symbol, -2, 2) eq '::';
         delete $symtab->{$symbol};
