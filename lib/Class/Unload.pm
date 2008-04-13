@@ -1,10 +1,11 @@
 package Class::Unload;
 
+=encoding utf8
+
 use warnings;
 use strict;
 no strict 'refs'; # we're fiddling with the symbol table
 
-use Carp;
 use Class::Inspector;
 
 =head1 NAME
