@@ -60,7 +60,7 @@ sub unload {
     # Delete the reference from the parent namespace if there are no
     # sub-namespaces.
     if (not keys %$symtab) {
-        my ($parent, $child) = $class =~ m/\A(?:([^\W\d]\w*)::)?(\w+)*\z/s;
+        my ($parent, $child) = $class =~ m/\A([^\W\d]\w*::)*(\w+)\z/s;
         $parent ||= 'main';
         delete ${$parent.'::'}{$child.'::'};
     }
