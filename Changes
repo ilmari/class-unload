@@ -1,6 +1,6 @@
 Revision history for Class-Unload
 
-0.02 Not yet released
+0.02 Tue Apr 15, 208
         - Fix deleting of parent symbol table entry for
           multi-level class names.  
         - Clear @ISA before clearing the symbol table to
