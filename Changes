@@ -3,6 +3,8 @@ Revision history for Class-Unload
 0.02 Not yet released
         - Fix deleting of parent symbol table entry for
           multi-level class names.  
+        - Clear @ISA before clearing the symbol table to
+          make perl 5.10 invalidate its inheritance cache.
 
 0.01 Sat Apr 12, 2008
         Initial version.

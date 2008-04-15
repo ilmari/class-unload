@@ -50,6 +50,9 @@ sub unload {
 
     return unless Class::Inspector->loaded( $class );
 
+    # Flush inheritance caches
+    @{$class . '::ISA'} = ();
+
     my $symtab = $class.'::';
     # Delete all symbols except other namespaces
     for my $symbol (keys %$symtab) {
