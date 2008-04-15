@@ -114,6 +114,13 @@ L<http://cpanratings.perl.org/d/Class-Unload>
 
 L<http://search.cpan.org/dist/Class-Unload>
 
+=item * Git reposiory
+
+L<http://git.ilmari.org/?p=Class-Unload.git>
+
+C<git://git.ilmari.org/Class-Unload.git>
+
+
 =back
 
 
