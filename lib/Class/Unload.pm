@@ -1,12 +1,12 @@
 package Class::Unload;
 
-=encoding utf8
-
 use warnings;
 use strict;
 no strict 'refs'; # we're fiddling with the symbol table
 
 use Class::Inspector;
+
+=encoding utf8
 
 =head1 NAME
 
