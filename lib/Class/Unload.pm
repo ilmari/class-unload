@@ -60,14 +60,6 @@ sub unload {
         delete $symtab->{$symbol};
     }
     
-    # Delete the reference from the parent namespace if there are no
-    # sub-namespaces.
-    if (not keys %$symtab) {
-        my ($parent, $child) = $class =~ m/\A([^\W\d]\w*::)*(\w+)\z/s;
-        $parent ||= 'main::';
-        delete ${$parent}{$child.'::'};
-    }
-
     delete $INC{ Class::Inspector->filename( $class ) };
     
     return 1;
