@@ -40,8 +40,7 @@ Unload a class
 =head2 unload $class
 
 Unloads the given class by clearing out its symbol table and removing it
-from %INC. If it has no sub-namespaces, also deletes the reference from
-the parent namespace.
+from %INC.
 
 =cut
 
