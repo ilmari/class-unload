@@ -3,6 +3,7 @@ Revision history for Class-Unload
 0.03 Not yet released
         - Remove pointless deletion of empty namespaces.
         - Add inheritance tests.
+        - Fix %INC path generation on non-UNIX platforms.
 
 0.02 Tue Apr 15, 208
         - Fix deleting of parent symbol table entry for

@@ -60,7 +60,8 @@ sub unload {
         delete $symtab->{$symbol};
     }
     
-    delete $INC{ Class::Inspector->filename( $class ) };
+    my $inc_file = join( '/', split /(?:'|::)/, $class ) . '.pm';
+    delete $INC{ $inc_file };
     
     return 1;
 }
