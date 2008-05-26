@@ -6,8 +6,6 @@ no strict 'refs'; # we're fiddling with the symbol table
 
 use Class::Inspector;
 
-=encoding utf8
-
 =head1 NAME
 
 Class::Unload - Unload a class
@@ -18,8 +16,10 @@ Version 0.03
 
 =cut
 
-our $VERSION = '0.03';
+use 5.005;
+use vars qw($VERSION);
 
+BEGIN { $VERSION = '0.03' };
 
 =head1 SYNOPSIS
 
@@ -67,7 +67,7 @@ sub unload {
 
 =head1 AUTHOR
 
-Dagfinn Ilmari MannsÃ¥ker, C<< <ilmari at ilmari.org> >>
+Dagfinn Ilmari Mannsåker, C<< <ilmari at ilmari.org> >>
 
 =head1 SEE ALSO
 
@@ -126,7 +126,7 @@ and pointers.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2008 Dagfinn Ilmari MannsÃ¥ker.
+Copyright 2008 Dagfinn Ilmari Mannsåker.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

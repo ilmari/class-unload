@@ -1,5 +1,8 @@
 Revision history for Class-Unload
 
+0.04 Not Yet Released
+        - Make compatible with Perl back to 5.005.
+
 0.03 Wed May 14, 2008
         - Remove pointless deletion of empty namespaces.
         - Add inheritance tests.
