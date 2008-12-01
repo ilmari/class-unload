@@ -12,14 +12,14 @@ Class::Unload - Unload a class
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
 use 5.005;
 use vars qw($VERSION);
 
-BEGIN { $VERSION = '0.03' };
+BEGIN { $VERSION = '0.04' };
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 Revision history for Class-Unload
 
-0.04 Not Yet Released
+0.04 Mon Nov  1, 2008
         - Make compatible with Perl back to 5.005.
         - Test unloading a class that's not loaded.
 
