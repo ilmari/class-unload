@@ -1,6 +1,8 @@
 Revision history for Class-Unload
 
 {{$NEXT}}
+
+0.06      2010-04-26 20:38:54 Europe/London
         - Convert to Dist::Zilla
 
 0.05 Mon Nov  1, 2008
