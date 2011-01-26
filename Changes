@@ -1,6 +1,7 @@
 Revision history for Class-Unload
 
 {{$NEXT}}
+        - Clean up after Class::C3 on pre-5.10 perls.
 
 0.06      2010-04-26 20:38:54 Europe/London
         - Convert to Dist::Zilla

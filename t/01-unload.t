@@ -4,15 +4,19 @@ use Class::Inspector;
 use Class::Unload;
 use lib 't/lib';
 
-use Test::More tests => 14;
+use Test::More tests => 15;
 
 for my $class ( qw/ MyClass MyClass::Sub MyClass::Sub::Sub / ) {
     eval "require $class" or diag $@;
     ok( Class::Inspector->loaded( $class ), "$class loaded" );
 }
 
+# Class::C3 creates this sort of cruft on 5.8
+${'MyClass::'}{'::ISA::CACHE::'} = 42;
+
 ok( Class::Unload->unload( 'MyClass' ), 'Unloading MyClass' );
 ok( ! Class::Inspector->loaded( 'MyClass' ), 'MyClass is not loaded' );
+ok( ! exists(${'MyClass::'}{'::ISA::CACHE::'}), 'Stash cruft deleted' );
 ok( Class::Inspector->loaded( 'MyClass::Sub' ), 'MyClass::Sub is still loaded' );
 
 ok( Class::Unload->unload( 'MyClass::Sub' ), 'Unloading MyClass::Sub' );

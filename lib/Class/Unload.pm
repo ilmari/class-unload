@@ -37,7 +37,7 @@ sub unload {
     my $symtab = $class.'::';
     # Delete all symbols except other namespaces
     for my $symbol (keys %$symtab) {
-        next if substr($symbol, -2, 2) eq '::';
+        next if $symbol =~ /\A[^:]+::\z/;
         delete $symtab->{$symbol};
     }
     
