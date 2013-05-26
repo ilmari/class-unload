@@ -7,6 +7,8 @@ no strict 'refs'; # we're fiddling with the symbol table
 
 use Class::Inspector;
 
+=encoding UTF-8
+
 =head1 SYNOPSIS
 
     use Class::Unload;
