@@ -3,7 +3,7 @@
 use Class::Unload;
 use lib 't/lib';
 
-use Test::More tests => 6; 
+use Test::More tests => 6;
 
 require MyClass::Child;
 

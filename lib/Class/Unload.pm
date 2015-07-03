@@ -42,10 +42,10 @@ sub unload {
         next if $symbol =~ /\A[^:]+::\z/;
         delete $symtab->{$symbol};
     }
-    
+
     my $inc_file = join( '/', split /(?:'|::)/, $class ) . '.pm';
     delete $INC{ $inc_file };
-    
+
     return 1;
 }
 
