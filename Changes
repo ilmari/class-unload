@@ -2,6 +2,8 @@ Revision history for Class-Unload
 
 {{$NEXT}}
 
+0.09      2015-07-03 11:11:32+01:00 Europe/London
+
         - Add META.json and resources metadata (RT#105634)
 
 0.08      2013-05-26 15:55:39 Europe/London
