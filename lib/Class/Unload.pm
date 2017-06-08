@@ -24,7 +24,7 @@ use Class::Inspector;
 =method unload $class
 
 Unloads the given class by clearing out its symbol table and removing it
-from %INC.
+from %INC.  If it's a L<Moose> class, the metaclass is also removed.
 
 =cut
 
@@ -45,6 +45,10 @@ sub unload {
 
     my $inc_file = join( '/', split /(?:'|::)/, $class ) . '.pm';
     delete $INC{ $inc_file };
+
+    if (Class::Inspector->loaded('Class::MOP')) {
+        Class::MOP::remove_metaclass_by_name($class);
+    }
 
     return 1;
 }
