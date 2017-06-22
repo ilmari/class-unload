@@ -2,6 +2,10 @@ Revision history for Class-Unload
 
 {{$NEXT}}
 
+0.11      2017-06-22 17:41:44+01:00 Europe/London
+
+        - No changes since 0.10-TRIAL
+
 0.10      2017-06-08 13:12:04+01:00 Europe/London (TRIAL RELEASE)
 
         - Remove Moose metaclasses (RT#122048)
