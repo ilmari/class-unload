@@ -1,25 +1,25 @@
 #!perl -T
 
-use strict;
-use warnings;
-use Test::More;
-
 use Class::Inspector;
 use Class::Unload;
-
 use lib 't/lib';
+BEGIN { eval "use Hash::Util"; } # since 5.8.0
 
-for my $class ( qw/ MyClass MyClass::Sub MyClass::Sub::Sub / ) {
+use Test::More tests => 12;
+
+for my $class ( qw/ MyClass::Sub::Sub MyClass::Sub MyClass / ) {
+    no strict 'refs';
     eval "require $class" or diag $@;
-    ok( Class::Inspector->loaded( $class ), "$class loaded" );
+    if (defined $Hash::Util::VERSION) {
+        Hash::Util::lock_keys(%{$class."::"});
+    } else {
+        Internals::SvREADONLY(%{$class."::"}, 1);
+    }
 }
-
-# Class::C3 creates this sort of cruft on 5.8
-$MyClass::{'::ISA::CACHE::'} = 42;
 
 ok( Class::Unload->unload( 'MyClass' ), 'Unloading MyClass' );
 ok( ! Class::Inspector->loaded( 'MyClass' ), 'MyClass is not loaded' );
-ok( ! exists($MyClass::{'::ISA::CACHE::'}), 'Stash cruft deleted' );
+ok( ! exists(${'MyClass::'}{'::ISA::CACHE::'}), 'Stash cruft deleted' );
 ok( Class::Inspector->loaded( 'MyClass::Sub' ), 'MyClass::Sub is still loaded' );
 
 ok( Class::Unload->unload( 'MyClass::Sub' ), 'Unloading MyClass::Sub' );
@@ -40,5 +40,3 @@ if ($^V =~ /c$/ and $] >= 5.027002) {
     like( $@, qr/Can't locate object method "unload" via package "Class::Unload"/,
           "Can't call method on unloaded class" );
 }
-
-done_testing;

@@ -2,6 +2,11 @@ Revision history for Class-Unload
 
 {{$NEXT}}
 
+0.11_01   2017-02-18 19:17:59 Europe/Berlin
+
+        - Support internal classes, restricted stashes and
+          protected ISA's. (rurban)
+
 0.11      2017-06-22 17:41:44+01:00 Europe/London
 
         - No changes since 0.10-TRIAL
