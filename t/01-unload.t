@@ -34,7 +34,11 @@ ok( Class::Unload->unload( 'Class::Unload' ), 'Unloading Class::Unload' );
 ok( ! Class::Inspector->loaded( 'Class::Unload' ), 'Class::Unload is not loaded' );
 
 eval { Class::Unload->unload( 'dummy' ) };
-like( $@, qr /Can't locate object method "unload" via package "Class::Unload"/,
-      "Can't call method on unloaded class" );
+if ($^V =~ /c$/ and $] >= 5.027002) {
+    is( $@, '', "unload unloaded class");
+} else {
+    like( $@, qr/Can't locate object method "unload" via package "Class::Unload"/,
+          "Can't call method on unloaded class" );
+}
 
 done_testing;
